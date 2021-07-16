@@ -1,0 +1,22 @@
+{
+  "name": "kadhir",
+  "version": "1.0.0",
+  "description": "this is making for the shopping website for customer order list for the owner geather mail information",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "shopping",
+    "website"
+  ],
+  "author": "Sri Sathish",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "nodemailer": "^6.6.3"
+  }
+}
