@@ -1,40 +1,84 @@
-const dotenv = require('dotenv')
-dotenv.config({path:"./config/.env"})
-const mailer = require('nodemailer')
+const dotenv = require('dotenv');
+dotenv.config({ path: './config/.env' });
+const mailer = require('nodemailer');
 
-console.log(process.env)
+const mailSender = async () => {
+	// This is main section for the mailing function start
 
-const mailSender = async ()=>{
+	// mail sending provider configuration
 
-    // This is main section for the mailing function start
+	const mailTranspoter = mailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'padhu.developer@gmail.com',
+			pass: process.env.PASS
+		}
+	});
 
-    // mail sending provider configuration
+	//  Mail sending properties
 
-    const mailTranspoter = mailer.createTransport({
-        service:'gmail',
-        auth:{
-            user:'padhu.developer@gmail.com',
-            pass:process.env.PASS
-        }
-    })
+	const bodyMessage = [
+		{
+			from: `"Kathir's Footware 🥾" <padhu.developer@gmail.com>`, // sender address
+			to: 'm.sathish0711@gmail.com', // list of receivers
+			subject: "Kathir's Footware ✔", // Subject line
+			html: modelHTML // html body
+		},
+		{
+			from: `"Kathir's Footware order's" <padhu.developer@gmail.com>`, // sender address
+			to: 'padhu.developer@gmail.com', // list of receivers
+			subject: 'Order Placed +', // Subject line
+			text: ` Model No:_xx-106 \n color:{'red'} \n name:${'bata_shoe'} \n Costomer P-no:${'9876543210'} \n Customer Mail: ${'m.sathish711@gmail.com'}`
+		}
+	];
 
-    //  Mail sending properties
+	// main send and return back messages for the packages
 
-    const bodyMessage = await transporter.sendMail({
-        from: '"Fred Foo 👻" <foo@example.com>', // sender address
-        to: "m.sathish0711@gmail.com", // list of receivers
-        subject: "Kathir's Footware ✔", // Subject line
-        text: `Thank you for ordering our product.
-        Please visit again`, // plain text body
-        html: `<h1>This is the Sample of the project</h1>`, // html body
-      });
+	await mailTranspoter.sendMail(bodyMessage[0], (err, info) => {
+		if (err) console.log(err);
+		else console.log(info);
+	});
 
-    // main send and return back messages for the packages
+	await mailTranspoter.sendMail(bodyMessage[1], (err, info) => {
+		if (err) console.log(err);
+		else console.log(info);
+	});
+};
 
-    await mailTranspoter.sendMail(bodyMessage,(err,info)=>{
-        if(err) console.log(err)
-        else console.log(info)
+const modelHTML = `<div>
+<header style="width: 100%; background-color: grey">
+    <h1 style="text-align: center">Kathir's Footware 🥾</h1>
+</header>
+<div
+    style="
+        width:100%;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%)
+    "
+>
+    <div
+        style="
+            height: 750px;
+            width: 600px;
+            border: 5px solid green;
+        "
+    >
+        <img
+            height="550px"
+            width="500px"
+            src="https://freepngimg.com/thumb/shoes/28530-3-nike-shoes-transparent.png"
+            alt="model image"
+        />
+        <div>
+            <h1 style="text-align:center;">bata shoe</h1>
+            <p>Color:${'red'}</p>
+            <p>Size:${10}</p>
+        </div>
+    </div>
+</div>
+</div>
+`;
 
-    })
-
-}
+mailSender();

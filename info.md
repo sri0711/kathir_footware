@@ -1,0 +1,2 @@
+#  account setting for mail sending permission to give the library
+https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4NgsX4_JJNhbMH_R8eZrw5c1er23b7GFT62ftBLbnenQBFjuXoW4LScPC41fP4BfKbiKaOqsHfhIthB4kiecGbz9Pa5iQ
