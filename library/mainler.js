@@ -73,8 +73,8 @@ const modelHTML = `<div>
         />
         <div>
             <h1 style="text-align:center;">bata shoe</h1>
-            <p>Color:${'red'}</p>
-            <p>Size:${10}</p>
+            <h4 style="text-align:center;>Color:${'red'}</h4>
+            <h4 style="text-align:center;>Size:${10}</h4>
         </div>
     </div>
 </div>
