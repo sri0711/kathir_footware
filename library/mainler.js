@@ -20,7 +20,7 @@ const mailSender = async () => {
 	const bodyMessage = [
 		{
 			from: `"Kathir's Footware 🥾" <padhu.developer@gmail.com>`, // sender address
-			to: 'm.sathish0711@gmail.com', // list of receivers
+			to: 'siva17588@gmail.com ', // list of receivers
 			subject: "Kathir's Footware ✔", // Subject line
 			html: modelHTML // html body
 		},
@@ -62,7 +62,6 @@ const modelHTML = `<div>
         style="
             height: 750px;
             width: 600px;
-            border: 5px solid green;
         "
     >
         <img
@@ -72,9 +71,9 @@ const modelHTML = `<div>
             alt="model image"
         />
         <div>
-            <h1 style="text-align:center;">bata shoe</h1>
-            <h4 style="text-align:center;>Color:${'red'}</h4>
-            <h4 style="text-align:center;>Size:${10}</h4>
+            <h1 style="text-align:center; font-size:32px;">bata shoe</h1>
+            <h2 style="text-align:center;">Color:${'red'}</h2>
+            <h2 style="text-align:center;">Size:${10}</h2>
         </div>
     </div>
 </div>
